@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://cn610wbnjt8rt"]
+
+[ext_resource type="Script" path="res://Scripts/Lobby.gd" id="1_k75ec"]
+
+[sub_resource type="GDScript" id="GDScript_egvde"]
+resource_name = "PlayerList"
+script/source = "extends Label
+
+var players = {}
+
+func add_new_player_to_list(id, name):
+	players[id] = name
+	_redraw_list()
+
+func _redraw_list():
+	text = \"\"
+	for i in players:
+		text += players[i]+\"\\n\"
+"
+
+[node name="Lobby" type="Node2D"]
+script = ExtResource("1_k75ec")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 370.0
+offset_top = 101.0
+offset_right = 417.0
+offset_bottom = 127.0
+text = "Lobby"
+
+[node name="PlayerList" type="Label" parent="."]
+offset_left = 327.0
+offset_top = 169.0
+offset_right = 523.0
+offset_bottom = 192.0
+script = SubResource("GDScript_egvde")
+
+[node name="StartGameButton" type="Button" parent="."]
+visible = false
+offset_left = 787.0
+offset_top = 114.0
+offset_right = 879.0
+offset_bottom = 145.0
+text = "start game"
+
+[connection signal="pressed" from="StartGameButton" to="." method="_on_start_game_button_pressed"]

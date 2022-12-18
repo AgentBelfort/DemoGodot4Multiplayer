@@ -1,0 +1,78 @@
+[gd_scene load_steps=3 format=3 uid="uid://b654tj2x7wcjh"]
+
+[ext_resource type="Script" path="res://Scripts/LobbyConnect.gd" id="1_1d4s3"]
+[ext_resource type="Script" path="res://Scripts/LobbyCreate.gd" id="1_mqtgv"]
+
+[node name="Menu" type="Node"]
+metadata/_edit_horizontal_guides_ = [-83.0]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 220.0
+offset_top = 70.0
+offset_right = 318.0
+offset_bottom = 96.0
+text = "Create lobby"
+script = ExtResource("1_mqtgv")
+
+[node name="port" type="LineEdit" parent="Label"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 46.0
+offset_right = 72.0625
+offset_bottom = 77.0
+text = "1488"
+placeholder_text = "port"
+
+[node name="Button" type="Button" parent="Label"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 146.0
+offset_right = 87.0
+offset_bottom = 177.0
+text = "Create"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 781.0
+offset_top = 70.0
+offset_right = 912.0
+offset_bottom = 96.0
+text = "Connect to lobby"
+script = ExtResource("1_1d4s3")
+
+[node name="nickname" type="LineEdit" parent="Label2"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 41.0
+offset_right = 133.0
+offset_bottom = 72.0
+text = "Jordan"
+placeholder_text = "nickname"
+
+[node name="ip" type="LineEdit" parent="Label2"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 95.0
+offset_right = 133.0
+offset_bottom = 126.0
+text = "localhost"
+placeholder_text = "ip"
+
+[node name="port" type="LineEdit" parent="Label2"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 147.0
+offset_right = 79.0625
+offset_bottom = 178.0
+text = "1488"
+placeholder_text = "port"
+
+[node name="Button2" type="Button" parent="Label2"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 200.0
+offset_right = 95.0
+offset_bottom = 231.0
+text = "Connect"
+
+[connection signal="pressed" from="Label/Button" to="Label" method="_on_create_button_pressed"]
+[connection signal="pressed" from="Label2/Button2" to="Label2" method="_on_connect_button_pressed"]
